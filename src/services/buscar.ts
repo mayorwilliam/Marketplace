@@ -1,6 +1,6 @@
 import { Response, Request} from 'express';
 import { RequestExt } from "../interfaces/request.inferface";
-import { Types } from 'mongoose';
+import mongoose from 'mongoose';
 
 import { Usuario, Producto } from "../models";
 
@@ -11,7 +11,7 @@ const coleccionesPermitidas = [
 
 const buscarUsuarios = async( termino = '', res: Response ) => {
 
-    const esMongoID = Types.ObjectId.isValid( termino ); // TRUE 
+    const esMongoID = mongoose.Types.ObjectId.isValid( termino ); // TRUE 
 
     if ( esMongoID ) {
         const usuario = await Usuario.findById(termino);
@@ -35,7 +35,7 @@ const buscarUsuarios = async( termino = '', res: Response ) => {
 
 const buscarProductos = async( termino = '', res: Response ) => {
 
-    const esMongoID = Types.ObjectId.isValid( termino ); // TRUE 
+    const esMongoID = mongoose.Types.ObjectId.isValid( termino ); // TRUE 
 
     if ( esMongoID ) {
         const producto = await Producto.findById(termino)
