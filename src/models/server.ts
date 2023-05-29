@@ -8,7 +8,7 @@ import routerUsuarios from '../routes/usuarios';
 
 import { dbConnection } from "../database/config";
 
-class Server {
+export default class Server {
     app;
     port:string;
     paths:Paths;
@@ -72,4 +72,3 @@ class Server {
 
 
 
-export default Server;
